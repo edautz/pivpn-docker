@@ -1,5 +1,5 @@
 # pivpn for docker
-<h1> BASED on https://github.com/archef2000/pivpn-docker </h1>
+<h1>Based on https://github.com/archef2000/pivpn-docker </h1>
 
 <p>
 <b>
