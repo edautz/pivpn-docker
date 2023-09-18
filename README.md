@@ -1,16 +1,15 @@
 # pivpn for docker
 
-
 <p>
+<b>
 docker exec -it  pivpn pivpn -a -n newuser nopass
+</b>
 </p>
 
 
 
-<a href="https://hub.docker.com/repository/docker/archef2000/pivpn">Docker Container</a> for <a href="https://github.com/pivpn/pivpn">PIVPN</a>
+<a href="https://hub.docker.com/repository/docker/redlegoman/pivpn">Docker Container</a> for <a href="https://github.com/pivpn/pivpn">PIVPN</a>
 
-
-[![Docker PIVPN](https://github.com/Archef2000/pivpn-docker/actions/workflows/main.yml/badge.svg)](https://github.com/Archef2000/pivpn-docker/actions/workflows/main.yml)
 
 Run "reconf" to reinstall pivpn and use new Variable
 
@@ -22,7 +21,7 @@ net_admin is needed for wireguard
 
 Docker Container for <a href="https://github.com/pivpn/pivpn">PIVPN</a>
 
-<a href="https://github.com/Archef2000/pivpn-docker/">Github</a>
+<a href="https://github.com/redlegoman/pivpn-docker/">Github</a>
 
 Failed to connect to bus: No such file or directory AND
 ./easyrsa: 341: set: Illegal option -o echo
@@ -34,7 +33,7 @@ Are known and solved in other ways but still shown
 version: '3'
 services:
   openvpn:
-    image: archef2000/pivpn:latest
+    image: redlegoman/pivpn:latest
     container_name: pivpn
     hostname: pivpn
     ports:
@@ -44,9 +43,9 @@ services:
       - ./openvpn/openvpn:/etc/openvpn
     environment:
       - HOST=example.com
-      - PROTO=udp # or tcp
+      - PROTO=tcp # or udp
       - VPN=openvpn
-      - PORT=1194
+      - PORT=1195 # I have changed this as I already had a service on port 1194 on my router - I have forwarded port 1195 to port 1194 on the host running docker
 # optional
       - CLIENT_NAME=pivpn
       - NET=10.8.0.0
@@ -62,7 +61,7 @@ services:
 version: '3'
 services:
   wireguard:
-    image: archef2000/pivpn:latest
+    image: redlegoman/pivpn:latest
     container_name: pivpn
     hostname: pivpn
     ports:
@@ -87,7 +86,7 @@ services:
 <h2>Docker Run</h2>
 <pre><code class="language-yaml">docker run -d --privileged \
 -v ./openvpn/openvpn:/etc/openvpn -v ./openvpn/pivpn:/etc/pivpn/openvpn -v ./openvpn/ovpns:/home/pivpn/ovpns \
--p 1194:194/udp archef2000/pivpn:latest</code></pre>
+-p 1194:194/udp redlegoman/pivpn:latest</code></pre>
 
 <h2>Environment Variables:</h2>
 <pre><code class="language-yaml">
