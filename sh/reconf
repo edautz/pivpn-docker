@@ -1,5 +1,4 @@
 #!/bin/bash
-
 echo "::: Pre Config of PIVPN."
 apt update > /dev/null 2> /dev/null
 pivpnFilesDir="/usr/local/src/pivpn"
@@ -19,7 +18,8 @@ INSTALLER=/etc/pivpn/install.sh
 mkdir -p /usr/local/src/pivpn/
 source  /etc/pivpn/setupVars.conf
 PLAT=Ubuntu
-curl -fsSL https://install.pivpn.io -o "${INSTALLER}"
+curl -kfsSL https://install.pivpn.io -o "${INSTALLER}"
+#curl -kL https://install.pivpn.io -o "${INSTALLER}"
 sed -i 's/debconf-apt-progress --//g' "${INSTALLER}"
 sed -i '/setStaticIPv4 #/d' "${INSTALLER}"
 sed -i 's/WIREGUARD_SUPPORT=0/WIREGUARD_SUPPORT=1/g' "${INSTALLER}"

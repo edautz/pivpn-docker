@@ -1,4 +1,12 @@
 # pivpn for docker
+
+
+<p>
+docker exec -it  pivpn pivpn -a -n newuser nopass
+</p>
+
+
+
 <a href="https://hub.docker.com/repository/docker/archef2000/pivpn">Docker Container</a> for <a href="https://github.com/pivpn/pivpn">PIVPN</a>
 
 

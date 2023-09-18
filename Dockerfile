@@ -10,6 +10,15 @@ RUN adduser --home /home/pivpn --disabled-password pivpn \
     openvpn grepcidr expect curl nano sudo bsdmainutils bash-completion cron ca-certificates iproute2 \
     net-tools iptables-persistent apt-transport-https whiptail dnsutils grep dhcpcd5 iptables-persistent
 
+RUN apt-get install -y -f --no-install-recommends \
+                            wireguard-tools qrencode gnupg openvpn grepcidr expect curl nano sudo bsdmainutils bash-completion cron ca-certificates iproute2 \
+                            net-tools iptables-persistent apt-transport-https whiptail dnsutils grep dhcpcd5 iptables-persistent \
+                            wget curl tzdata autoconf git ca-certificates iputils-ping bash iproute2 \
+                            net-tools iptables-persistent apt-transport-https whiptail dnsutils grep dhcpcd5 \
+                            iptables-persistent vim procps netcat-openbsd
+
+
+
 WORKDIR /home/pivpn
 COPY sh/ /usr/local/bin/
 COPY crontab /etc/cron.d/update
