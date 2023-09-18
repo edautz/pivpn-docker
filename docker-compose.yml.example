@@ -2,9 +2,6 @@
 version: '3'
 services:
   openvpn:
-    #image: andy/test1:latest
-    #image: archef2000/pivpn:latest
-    #image: gitlab.mcdade.uk:5050/andy/dockerreg/pivpn-test:latest 
     image: docker.io/redlegoman/pivpn:latest
     container_name: pivpn
     hostname: pivpn
@@ -14,12 +11,12 @@ services:
       - ./openvpn/ovpns:/home/pivpn/ovpns
       - ./openvpn/openvpn:/etc/openvpn
     environment:
-      - HOST=117net.co.uk
+      - HOST=your-domain.name
       - PROTO=tcp # or tcp
       - VPN=openvpn
-      - PORT=1195
+      - PORT=1194
 # optional
-      - CLIENT_NAME=pivpn
+      - CLIENT_NAME=pivpn # or whatever you want to call your user
       - NET=10.8.0.0
       - TWO_POINT_FOUR=1 # or 0 If TWO_POINT_FOUR=0 then ENCRYPT needs to be 2048, 3072, or 4096
       - DNS1=1.1.1.1 # Client DNS
