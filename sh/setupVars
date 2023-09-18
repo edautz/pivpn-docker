@@ -16,8 +16,8 @@ install_user=pivpn
 install_home=/home/pivpn
 pivpnPROTO=${PROTO:=udp}
 pivpnPORT=${PORT:=$VPNPORT}
-pivpnDNS1=${DNS1:=8.8.8.8}
-pivpnDNS2=${DNS2:=8.8.4.4}
+pivpnDNS1=${DNS1:=1.1.1.1}
+pivpnDNS2=${DNS2:=9.9.9.9}
 pivpnHOST=${HOST:=example.com}
 pivpnNET=${NET:=10.8.0.0}
 subnetClass=${subnetClass:=24}
@@ -25,6 +25,7 @@ IPv4dev=${INTERFACE:=eth0}
 UNATTUPG=1
 pivpnInterface=${INTERFACE:=eth0}
 VPN=$VPN
+pivpnSEARCHDOMAIN=${SEARCH:=example.com}
 
 #OPENVPN
 TWO_POINT_FOUR=$TWO_POINT_FOUR
