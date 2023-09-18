@@ -11,11 +11,12 @@ services:
       - ./openvpn/ovpns:/home/pivpn/ovpns
       - ./openvpn/openvpn:/etc/openvpn
     environment:
-      - HOST=your-domain.name
+      - HOST=example.com
       - PROTO=tcp # or tcp
       - VPN=openvpn
       - PORT=1194
 # optional
+      - SEARCH=example.com # DNS search for clients
       - CLIENT_NAME=pivpn # or whatever you want to call your user
       - NET=10.8.0.0
       - TWO_POINT_FOUR=1 # or 0 If TWO_POINT_FOUR=0 then ENCRYPT needs to be 2048, 3072, or 4096
