@@ -111,4 +111,6 @@ subnetClass=24
 ./pivpn/wireguard:/etc/wireguard      # If Wireguard
 </code></pre>
 
+Modified for building your own local image.
+
 <hr>
