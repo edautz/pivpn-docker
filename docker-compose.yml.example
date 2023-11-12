@@ -2,7 +2,7 @@
 version: '3'
 services:
   openvpn:
-    image: docker.io/redlegoman/pivpn:latest
+    image: local_image:latest
     container_name: pivpn
     hostname: pivpn
     ports:
